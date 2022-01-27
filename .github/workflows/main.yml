@@ -72,8 +72,8 @@ jobs:
             git remote remove origin
             git remote add origin https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/TataSkyIPTV-Daily
             git branch -M main default || git branch -M main
-            git add .
-            git commit --author="Rpruthvi9277<Rpruthvi9277@gmail.com>" -m "Adapt Repo for auto-loop"
+            git add --all
+            git commit -m "Initial comment"
             git push --set-upstream origin main || { echo "Force pushing..."; git push -f --set-upstream origin main; }
             git clone ${gist_url} >> /dev/null 2>&1
             cd ${dir} && rm allChannelPlaylist.m3u && mv ../code_samples/allChannelPlaylist.m3u .
