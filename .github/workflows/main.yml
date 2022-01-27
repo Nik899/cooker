@@ -68,7 +68,7 @@ jobs:
             rm substitute.txt
             cd ../..
             
-            
+            rm .gitignore
             git remote remove origin
             git remote add origin https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/TataSkyIPTV-Daily
             git branch -M main default || git branch -M main
