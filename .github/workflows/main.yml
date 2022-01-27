@@ -55,7 +55,7 @@ jobs:
             gist_url=$(cat gist_link.txt)
             dir="${gist_url##*/}"
             rm allChannelPlaylist.m3u && rm gist_link.txt
-            gh repo create TataSkyIPTV-Daily --private -y || echo "New repo has been created"
+            gh repo create MyTataSky-Daily --private -y || echo "New repo has been created"
             mkdir -p .github/workflows && cd .github/workflows
             wget https://gist.githubusercontent.com/Rpruthvi9277/525be0cf4aa0d1df9b93b650b0e3cc42/raw/TataSkyDailyWorkflow.yml >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Rpruthvi9277/858575a5c33a028d36520d3cade1c47d/raw/substitute.txt >> /dev/null 2>&1
@@ -67,16 +67,14 @@ jobs:
             cat substitute.txt | envsubst >> TataSkyDailyWorkflow.yml
             rm substitute.txt
             cd ../..
-            
-            rm .gitignore
-            git remote remove origin
-            git remote add origin https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/TataSkyIPTV-Daily
-            git branch -M main default || git branch -M main
-            git add --all
-            git commit -m "Initial comment"
-            git push --set-upstream origin main || { echo "Force pushing..."; git push -f --set-upstream origin main; }
-            git clone ${gist_url} >> /dev/null 2>&1
-            cd ${dir} && rm allChannelPlaylist.m3u && mv ../code_samples/allChannelPlaylist.m3u .
+            rm -rf .git
+            cd ..
+            git clone https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/MyTataSky-Daily
+            rm -rf MyTataSky-Daily/*
+            rm -rf MyTataSky-Daily/.github
+            mv cooker/* MyTataSky-Daily/
+            mv cooker/.github MyTataSky-Daily/
+            cd MyTataSky-Daily/
             git add .
-            git commit -m "Initial Playlist Upload"
-            git push >> /dev/null 2>&1
+            git commit --author="TechieSneh<techiesneh@gmail.com>" -m "Update Repo"
+            git push
