@@ -1,7 +1,7 @@
-name: MakeActions
+name: Tata-Play
 on:
  workflow_dispatch:
-inputs:
+  inputs:
     git_token:
       description: 'Enter your GitHub Token'     
       required: true
