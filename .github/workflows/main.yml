@@ -67,7 +67,7 @@ jobs:
             cat substitute.txt | envsubst >> TataSkyDailyWorkflow.yml
             rm substitute.txt
             cd ../..
-            rm .gitignore
+            
             touch .gitignore && echo "__pycache__" >> .gitignore && echo "allChannelPlaylist.m3u" >> .gitignore && echo "userSubscribedChannels.json" >> .gitignore
             git remote remove origin
             git remote add origin https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/TataSkyIPTV-Daily
