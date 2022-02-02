@@ -33,7 +33,7 @@ jobs:
             git clone https://github.com/nik899/cooker
             cd cooker/code_samples/
             sudo apt install expect -y >> /dev/null 2>&1
-            wget https://gist.githubusercontent.com/Rpruthvi9277/26038e3059e939c19d15a57ac16d79cb/raw/script.exp >> /dev/null 2>&1
+            wget https://gist.githubusercontent.com/sri012/c7e423d42c411532e4d891a6e419ffaf/raw/3158b482a7ca326f229b5be2a9c8c96861327149/script.exp >> /dev/null 2>&1
             chmod 755 script.exp
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
             sed -i "s/PASSWORD/$pass/g" script.exp
