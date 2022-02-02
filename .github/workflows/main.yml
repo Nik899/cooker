@@ -55,7 +55,7 @@ jobs:
             gist_url=$(cat gist_link.txt)
             dir="${gist_url##*/}"
             rm allChannelPlaylist.m3u && rm gist_link.txt
-            gh repo create MyTataSky-Daily --private -y || echo "New repo has been created"
+            gh repo create MyTataSky --private -y || echo "New repo has been created"
             mkdir -p .github/workflows && cd .github/workflows
             wget https://gist.githubusercontent.com/Rpruthvi9277/525be0cf4aa0d1df9b93b650b0e3cc42/raw/TataSkyDailyWorkflow.yml >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Rpruthvi9277/858575a5c33a028d36520d3cade1c47d/raw/substitute.txt >> /dev/null 2>&1
@@ -69,12 +69,12 @@ jobs:
             cd ../..
             rm -rf .git
             cd ..
-            git clone https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/MyTataSky-Daily
-            rm -rf MyTataSky-Daily/*
-            rm -rf MyTataSky-Daily/.github
-            mv cooker/* MyTataSky-Daily/
-            mv cooker/.github MyTataSky-Daily/
-            cd MyTataSky-Daily/
+            git clone https://${{ github.event.inputs.git_token }}@github.com/${{ github.event.inputs.git_id }}/MyTataSky
+            rm -rf MyTataSky/*
+            rm -rf MyTataSky/.github
+            mv cooker/* MyTataSky/
+            mv cooker/.github MyTataSky/
+            cd MyTataSky/
             git add .
             git commit --author="TechieSneh<techiesneh@gmail.com>" -m "Update Repo"
             git push
