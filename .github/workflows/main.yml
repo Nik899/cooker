@@ -37,7 +37,9 @@ jobs:
             wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
             chmod 755 *
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
-            sed -i "s/OTP/$pass/g" post_script.exp
+            
+            sed -i 's/OTP/${{ github.event.inputs.tata_pass }}/g' post_script.exp
+            
             sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' post_script.exp
             sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' post_script.exp
             
