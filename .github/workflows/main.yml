@@ -33,16 +33,16 @@ jobs:
             git clone https://github.com/nik899/cooker
             cd cooker/code_samples/
             sudo apt install expect -y >> /dev/null 2>&1
-            wget https://gist.githubusercontent.com/sri012/c7e423d42c411532e4d891a6e419ffaf/raw/3158b482a7ca326f229b5be2a9c8c96861327149/script.exp >> /dev/null 2>&1
-            chmod 755 script.exp
+            wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp >> /dev/null 2>&1
+            chmod 755 post_script.exp
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
-            sed -i "s/PASSWORD/$pass/g" script.exp
-            sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' script.exp
-            sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' script.exp
-            ./script.exp
-            rm script.exp
-            wget https://gist.githubusercontent.com/sri012/c7e423d42c411532e4d891a6e419ffaf/raw/3158b482a7ca326f229b5be2a9c8c96861327149/script.exp >> /dev/null 2>&1
-            chmod 755 script.exp
+            sed -i "s/OTP/$otp/g" post_script.exp
+            sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' post_script.exp
+            sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' post_script.exp
+            ./post_script.exp
+           
+            wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp >> /dev/null 2>&1
+            chmod 755 post_script.exp
             touch mytoken.txt
             echo "${{ github.event.inputs.git_token }}" >> mytoken.txt
             gh auth login --with-token < mytoken.txt
