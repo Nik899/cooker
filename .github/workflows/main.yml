@@ -38,7 +38,7 @@ jobs:
             sed -i "s/OTP/$pass/g" post_script.exp
             sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' post_script.exp
             sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' post_script.exp
-            ./post_script.exp
+            /post_script.exp
            
             
             touch mytoken.txt
