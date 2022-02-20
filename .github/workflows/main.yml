@@ -32,7 +32,7 @@ jobs:
             git config --global user.email "${{ github.event.inputs.git_mail }}"
             git clone https://github.com/nik899/cooker
             cd cooker/code_samples/
-            chmod 755*
+            chmod 755 *
             sudo apt install expect -y >> /dev/null 2>&1
             ./post_script.exp
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
