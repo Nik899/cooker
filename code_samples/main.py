@@ -17,23 +17,15 @@ while True:
     print(" Login Status: " + logged_in)
     print("====================================")
     print("Menu:")
-    print("1. Login using Password" if logged_in != "true" else "1. Login Again Using Password")
-    print("2. Login using OTP" if logged_in != "true" else "2. Login Again Using OTP")
+    print("2. Login using OTP" if logged_in != "true" else "2. Login  Using OTP")
     print("3. Generate my playlist ")
     print("4. Exit")
     print("*************************************************************")
     print("\n")
     ch = int(input("Enter your choice:"))
 
-    if ch == 1:
-        rmn = str(input("Enter your Registered Mobile Number without the country code: "))
-        sid = str(input("Enter your Subscriber Id: "))
-        pwd = str(input("Enter your password: "))
-        print("Trying to Login with password ............")
-        print("\n \n")
-        print("*************************************")
-        login.loginWithPass(sid=sid, rmn=rmn, pwd=pwd)
-    elif ch == 2:
+    
+    if ch == 2:
         rmn = str(input("Enter your Registered Mobile No without the Country Code: "))
         sid = str(input("Enter your Subscriber Id: "))
         login.generateOTP(sid=sid, rmn=rmn)
@@ -51,7 +43,7 @@ while True:
             print("************************************")
             utils.m3ugen()
         else:
-            print("Please login with options 1 or 2 before generating playlist")
+            print("Please login with options 2 before generating playlist")
     elif ch == 4:
         print("Bye Bye.. See you soon!")
         exit()
