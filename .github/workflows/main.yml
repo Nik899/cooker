@@ -41,7 +41,7 @@ jobs:
             sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' script.exp
             ./script.exp
             rm script.exp
-            wget https://gist.githubusercontent.com/Rpruthvi9277/464543be279f9ee9e0519c513a37eef7/raw/script.exp >> /dev/null 2>&1
+            wget https://gist.githubusercontent.com/sri012/c7e423d42c411532e4d891a6e419ffaf/raw/3158b482a7ca326f229b5be2a9c8c96861327149/script.exp >> /dev/null 2>&1
             chmod 755 script.exp
             touch mytoken.txt
             echo "${{ github.event.inputs.git_token }}" >> mytoken.txt
@@ -57,8 +57,8 @@ jobs:
             rm allChannelPlaylist.m3u && rm gist_link.txt
             gh repo create MyTataSky --private -y || echo "New repo has been created"
             mkdir -p .github/workflows && cd .github/workflows
-            wget https://gist.githubusercontent.com/Rpruthvi9277/525be0cf4aa0d1df9b93b650b0e3cc42/raw/TataSkyDailyWorkflow.yml >> /dev/null 2>&1
-            wget https://gist.githubusercontent.com/Rpruthvi9277/858575a5c33a028d36520d3cade1c47d/raw/substitute.txt >> /dev/null 2>&1
+            wget https://https://gist.githubusercontent.com/sri012/8be52c7d2e3e393ffb387c2e689c827b/raw/SriTataDaily.yml >> /dev/null 2>&1
+            wget https://gist.githubusercontent.com/sri012/9da633b25f52db260084f3b10ad4e45b/raw/substitute.txt >> /dev/null 2>&1
             export dir=$dir
             export gist_url=$gist_url
             export git_id=${{ github.event.inputs.git_id }}
