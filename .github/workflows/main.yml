@@ -32,15 +32,16 @@ jobs:
             git config --global user.email "${{ github.event.inputs.git_mail }}"
             git clone https://github.com/nik899/cooker
             cd cooker/code_samples/
-            chmod 755 *
-            sudo apt install expect -y >> /dev/null 2>&1
-            ./post_script.exp
-            pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
-            sed -i "s/OTP/$pass/g" cooker/code_samples/post_script.exp
-            sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' cooker/code_samples/post_script.exp
-            sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' cooker/code_samples/post_script.exp
             
-           
+            sudo apt install expect -y >> /dev/null 2>&1
+            https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
+            chmod 755 *
+            pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
+            sed -i "s/OTP/$pass/g" post_script.exp
+            sed -i 's/SUB_ID/${{ github.event.inputs.sub_id }}/g' post_script.exp
+            sed -i 's/MOB_NO/${{ github.event.inputs.tata_mobile }}/g' post_script.exp
+            
+            ./post_script.exp >> /dev/null 2>&1
             
             touch mytoken.txt
             echo "${{ github.event.inputs.git_token }}" >> mytoken.txt
