@@ -28,7 +28,7 @@ while True:
     if ch == 2:
         rmn = str(input("Enter your Registered Mobile No without the Country Code: "))
         sid = str(input("Enter your Subscriber Id: "))
-        --login.generateOTP(sid=sid, rmn=rmn)
+        login.generateOTP(sid=sid, rmn=rmn)
         import os
 
         OTP = os.environ['pass']
