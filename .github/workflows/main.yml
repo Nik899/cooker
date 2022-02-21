@@ -11,7 +11,9 @@ on:
     sub_id:
       description: 'Enter your Tata Sky Subscriber ID'
       required: true
-    
+    tata_pass:
+            description: 'Enter your Tata Sky Password'     
+            required: true
     git_mail:
       description: 'Enter your GitHub Mail Address'
       required: true
@@ -34,9 +36,7 @@ jobs:
             sudo apt install expect -y >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
             chmod 755 *
-            tata_pass:
-            description: 'Enter your Tata Sky Password'     
-            required: true
+            
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
             
             sed -i 's/otp/$pass/g' post_script.exp
