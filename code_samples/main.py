@@ -31,10 +31,10 @@ while True:
         login.generateOTP(sid=sid, rmn=rmn)
         import os
 
-        OTP = os.environ['pass']
+        otp= os.environ['pass']
 
         print("Enter otpp:", otp)
-        otp = str("Enter the OTP sent to your rmn: ")
+        --otp = str("Enter the OTP sent to your rmn: ")
         print("\n \n")
         print("*************************************")
         print("Trying to Login with OTP ................")
