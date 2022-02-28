@@ -35,7 +35,7 @@ jobs:
             
             sudo apt install expect -y >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
-            wget https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/constants.py
+            wget https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/main.py
             wget https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/login.py
     
             chmod 755 *
