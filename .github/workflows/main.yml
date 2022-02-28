@@ -36,7 +36,9 @@ jobs:
             sudo apt install expect -y >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
             chmod 755 *
-            
+            git_id:
+            description: 'Enter your GitHub ID'
+            required: true
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
             
             sed -i 's/OTP/${{ github.event.inputs.tata_pass }}/g' post_script.exp
