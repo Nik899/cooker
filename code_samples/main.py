@@ -34,7 +34,8 @@ while True:
         otp= os.environ['pass']
 
         print("Enter otpp:", otp)
-        --otp = str("Enter the OTP sent to your rmn: ")
+        otp = otp
+       --str("Enter the OTP sent to your rmn: ")
         print("\n \n")
         print("*************************************")
         print("Trying to Login with OTP ................")
