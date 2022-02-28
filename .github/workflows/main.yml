@@ -38,12 +38,7 @@ jobs:
             chmod 755 *
             wget https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/constants.py
     wget https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/login.py
-    echo "Please Enter the required details below to proceed further: "
-    echo " "
-    read -p " Enter your Tata Sky Subscriber ID: " sub_id;
-    read -p " Enter your Tata Sky Registered Mobile number: " tata_mobile;
-    send_otp;
-    read -p " Enter your GitHub Token: " git_token;
+    
             
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
             
