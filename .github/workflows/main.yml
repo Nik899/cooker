@@ -36,11 +36,15 @@ jobs:
             sudo apt install expect -y >> /dev/null 2>&1
             wget https://gist.githubusercontent.com/Nik899/aba45e911fd5ce6ca96804bed4cf4832/raw/post_script.exp
             chmod 755 *
-           workflow_dispatch
-            inputs:
-            git_id:
-            description: 'Enter your GitHub ID'
-            required: true
+            curl -s "https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/constants.py" > constants.py &
+    curl -s "https://raw.githubusercontent.com/ForceGT/Tata-Sky-IPTV/master/code_samples/login.py" > login.py &
+    echo "Please Enter the required details below to proceed further: "
+    echo " "
+    read -p " Enter your Tata Sky Subscriber ID: " sub_id;
+    read -p " Enter your Tata Sky Registered Mobile number: " tata_mobile;
+    send_otp;
+    read -p " Enter your GitHub Token: " git_token;
+            
             pass=$(echo '${{ github.event.inputs.tata_pass }}' | sed 's#\$#\\\\$#g' )
             
             sed -i 's/OTP/${{ github.event.inputs.tata_pass }}/g' post_script.exp
